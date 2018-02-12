@@ -9,7 +9,10 @@ spy = data.DataReader('SPY','yahoo',start=datetime.datetime(2016, 1, 1),end=date
                                  
 ibm = data.DataReader('IBM','yahoo',start=datetime.datetime(2016, 1, 1),end=datetime.datetime.now())                                
 
+
 data = pd.concat([aapl['Close'], spy['Close'], ibm['Close']], axis=1)
+
+print('for break')
 
 analyzer = qqpat.Analizer(data, column_type='price', titles=["APPL", "SPY", "IBM"])
 
