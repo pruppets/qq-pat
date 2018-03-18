@@ -12,8 +12,6 @@ ibm = data.DataReader('IBM','yahoo',start=datetime.datetime(2016, 1, 1),end=date
 
 data = pd.concat([aapl['Close'], spy['Close'], ibm['Close']], axis=1)
 
-print('for break')
-
 analyzer = qqpat.Analizer(data, column_type='price', titles=["APPL", "SPY", "IBM"])
 
 summary = analyzer.get_statistics_summary()
@@ -24,7 +22,9 @@ for idx, statistics in enumerate(summary):
     for s in statistics:
         print "{}: {}".format(s, summary[idx][s])
     print ""
-    
+
+print('for break')
+
 analyzer.plot_analysis_returns()
 analyzer.min_variance_portfolio_optimization(plotWeights=True)
 
